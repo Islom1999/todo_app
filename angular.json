@@ -75,6 +75,9 @@
             },
             "development": {
               "buildTarget": "todo-client:build:development"
+            },
+            "options": {
+              "proxyConfig": "./src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -105,5 +108,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "ad000690-185f-4d30-a330-05c4739ac3e1"
   }
 }

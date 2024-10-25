@@ -1,0 +1,127 @@
+<div class="task-list-container">
+  <div class="task-header">
+    <h2>Vazifalar ro'yhati</h2>
+    <button
+      pButton
+      label="Qo'shish"
+      icon="pi pi-plus"
+      (click)="showTaskDialog()"
+    ></button>
+  </div>
+
+  <ng-container *ngIf="$tasks | async as taskList">
+    <!-- vazifalar bo'limi -->
+    <div class="task-section card" pDroppable="true" (onDrop)="dropTask(0)">
+      <h3>Vazifalar</h3>
+      <ul class="task-list" *ngIf="getTasksByStatus(1, taskList) as taskTodo">
+        <li
+          *ngFor="let task of taskTodo"
+          pDraggable="true"
+          (onDragStart)="dragStart(task)"
+          class="grid"
+        >
+          <div class="col-1">
+            <p-checkbox
+              [binary]="true"
+              [ngModel]="task.completed === 1"
+              (onChange)="toggleTaskStatus(task)"
+            >
+            </p-checkbox>
+          </div>
+          <div class="col-3">
+            <span>{{ task.title }}</span>
+          </div>
+          <div class="col-5">
+            <span>{{ task.description }}</span>
+          </div>
+          <div class="col-2">
+            <span class="task-info">
+              <i class="pi pi-calendar"></i>
+              {{ task.created_at | date : "dd.MM.yyy HH:mm" }}
+            </span>
+          </div>
+          <div class="col-1">
+            <span class="p-buttonset">
+              <ng-container>
+                <button
+                  (click)="showTaskDialog(task.id)"
+                  pButton
+                  icon="pi pi-pencil"
+                  class="p-button-info"
+                ></button>
+              </ng-container>
+              <ng-container>
+                <button
+                  (click)="delete(task.id)"
+                  pButton
+                  icon="pi pi-trash"
+                  class="p-button-danger"
+                ></button>
+              </ng-container>
+            </span>
+          </div>
+        </li>
+
+        <li *ngIf="taskTodo.length == 0">
+            <p  class="text-center col-12">hozircha vazifalar yo'q</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- bajarilgan vazifalar bo'limi -->
+    <div class="task-section card" pDroppable="true" (onDrop)="dropTask(1)">
+      <h3>Bajarilgan</h3>
+      <ul class="task-list" *ngIf="getTasksByStatus(1, taskList) as taskDone">
+        <li
+          *ngFor="let task of taskDone"
+          pDraggable="true"
+          (onDragStart)="dragStart(task)"
+        >
+          <div class="col-1">
+            <p-checkbox
+              [binary]="true"
+              [ngModel]="task.completed === 1"
+              (onChange)="toggleTaskStatus(task)"
+            >
+            </p-checkbox>
+          </div>
+          <div class="col-3">
+            <span>{{ task.title }}</span>
+          </div>
+          <div class="col-5">
+            <span>{{ task.description }}</span>
+          </div>
+          <div class="col-2">
+            <span class="task-info">
+              <i class="pi pi-calendar"></i>
+              {{ task.created_at | date : "dd.MM.yyy HH:mm" }}
+            </span>
+          </div>
+          <div class="col-1">
+            <span class="p-buttonset">
+              <ng-container>
+                <button
+                  (click)="showTaskDialog(task.id)"
+                  pButton
+                  icon="pi pi-pencil"
+                  class="p-button-info"
+                ></button>
+              </ng-container>
+              <ng-container>
+                <button
+                  (click)="delete(task.id)"
+                  pButton
+                  icon="pi pi-trash"
+                  class="p-button-danger"
+                ></button>
+              </ng-container>
+            </span>
+          </div>
+        </li>
+        <li *ngIf="taskDone.length == 0">
+            <p  class="text-center col-12">hozircha bajarilgan vazifalar yo'q</p>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+</div>

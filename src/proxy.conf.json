@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "http://laravelapi.aserver.uz",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true
+  }
+}

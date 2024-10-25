@@ -1,0 +1,28 @@
+<div class="flex justify-content-center align-items-center min-h-screen">
+    <div class="card">
+      <h2 class="text-center">Ro'yhatdan o'tish</h2>
+      <p class="text-center">Malumotlarni to'liq to'ldiring</p>
+      
+      <form [formGroup]="form" (submit)="submit()">
+        <div class="p-fluid">
+            <div class="field">
+              <span class="p-input-icon-left">
+                <i class="pi pi-envelope"></i>
+                <input type="email" pInputText placeholder="Email" formControlName="email"/>
+              </span>
+            </div>
+      
+            <div class="field">
+                <p-password [toggleMask]="true" [feedback]="false" placeholder="Parolni kiriting" formControlName="password"/>
+            </div>
+
+            <button pButton label="Sign Up" class="p-button-primary w-full"></button>
+      
+            <div class="text-center mt-3">
+              <p>Siz ro'yhatdan o'tmagan bo'lsangiz - <a [routerLink]="['/auth', 'register']">ro'yhatdan o'tish</a>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+  
