@@ -26,6 +26,7 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {}
 
   getTasksByStatus(status: number, tasks: ITodo[]) {
+    console.log(tasks.filter( (task:ITodo) => task.completed === status ))
     return tasks.filter( (task:ITodo) => task.completed === status );
   }
 

@@ -13,7 +13,7 @@
     <!-- vazifalar bo'limi -->
     <div class="task-section card" pDroppable="true" (onDrop)="dropTask(0)">
       <h3>Vazifalar</h3>
-      <ul class="task-list" *ngIf="getTasksByStatus(1, taskList) as taskTodo">
+      <ul class="task-list" *ngIf="getTasksByStatus(0, taskList) as taskTodo">
         <li
           *ngFor="let task of taskTodo"
           pDraggable="true"
