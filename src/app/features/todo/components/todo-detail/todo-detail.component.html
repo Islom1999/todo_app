@@ -4,11 +4,11 @@
       <form [formGroup]="form" (submit)="submit()">
           <div class="p-grid">
             <div class="p-field p-col-12 mb-3">
-              <label for="title">vazifa nomi</label>
+              <label for="title">{{'MODAL_FORM_TITLE' | translate}}</label>
               <input id="title" pInputText formControlName="title"/>
             </div>
             <div class="p-field p-col-12 mb-3">
-              <label for="description">qo'shimcha ma'lumotlari</label>
+              <label for="description">{{'MODAL_FORM_DESCR' | translate}}</label>
               <textarea id="description" pInputTextarea formControlName="description"></textarea>
             </div>
           </div>
@@ -16,12 +16,12 @@
             <button
               pButton
               type="button"
-              label="bekor qilish"
+              [label]="'MODAL_FORM_BACK' | translate"
               icon="pi pi-times"
               class="p-button-danger"
               (click)="back()"
             ></button>
-            <button pButton label="saqlash" icon="pi pi-check"></button>
+            <button pButton [label]="'MODAL_FORM_SAVE' | translate" icon="pi pi-check"></button>
           </div>
       </form>
     </div>

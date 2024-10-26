@@ -1,25 +1,25 @@
 <div class="flex justify-content-center align-items-center min-h-screen">
     <div class="card">
-      <h2 class="text-center">Ro'yhatdan o'tish</h2>
-      <p class="text-center">Malumotlarni to'liq to'ldiring</p>
+      <h2 class="text-center">{{'AUTH_FORM_LOGIN' | translate}}</h2>
+      <p class="text-center">{{'AUTH_FORM_NOTE' | translate}}</p>
       
       <form [formGroup]="form" (submit)="submit()">
         <div class="p-fluid">
             <div class="field">
               <span class="p-input-icon-left">
                 <i class="pi pi-envelope"></i>
-                <input type="email" pInputText placeholder="Email" formControlName="email"/>
+                <input type="email" pInputText [placeholder]="'AUTH_FORM_LABEL_EMAIL' | translate" formControlName="email"/>
               </span>
             </div>
       
             <div class="field">
-                <p-password [toggleMask]="true" [feedback]="false" placeholder="Parolni kiriting" formControlName="password"/>
+                <p-password [toggleMask]="true" [feedback]="false" [placeholder]="'AUTH_FORM_LABEL_PASSWORD' | translate" formControlName="password"/>
             </div>
 
-            <button pButton label="Sign Up" class="p-button-primary w-full"></button>
+            <button pButton [label]="'AUTH_FORM_LOGIN' | translate" class="p-button-primary w-full"></button>
       
             <div class="text-center mt-3">
-              <p>Siz ro'yhatdan o'tmagan bo'lsangiz - <a [routerLink]="['/auth', 'register']">ro'yhatdan o'tish</a>
+              <p>{{'AUTH_FORM_INFO_LOGIN' | translate}} - <a [routerLink]="['/auth', 'register']">{{'AUTH_FORM_LOGIN' | translate}}</a>
             </div>
           </div>
       </form>

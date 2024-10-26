@@ -17,7 +17,7 @@ describe('TodoDetailComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('yaratilishi kerak', () => {
     expect(component).toBeTruthy();
   });
 });

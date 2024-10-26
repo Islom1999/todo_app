@@ -1,18 +1,62 @@
 <div class="task-list-container">
   <div class="task-header">
-    <h2>Vazifalar ro'yhati</h2>
     <button
       pButton
-      label="Qo'shish"
+      [label]="'BUTTON_ADD' | translate"
       icon="pi pi-plus"
       (click)="showTaskDialog()"
+      severity="info"
     ></button>
+    <h2>{{ 'HOME_TITLE' | translate }}</h2>
+    <div>
+      <p-dropdown
+        [options]="languages"
+        [(ngModel)]="selectedLanguage"
+        optionLabel="name"
+        [style]="{ width: '160px' }"
+        (onChange)="changeLanguage()"
+      >
+        <ng-template pTemplate="selectedItem" let-item>
+          <div class="language-item">
+            <img
+              *ngIf="item"
+              [src]="item.flag"
+              alt="{{ item.name }}"
+              width="24"
+              style="margin-right: 10px"
+            />
+            <span *ngIf="item">{{ item.name }}</span>
+          </div>
+        </ng-template>
+
+        <ng-template pTemplate="item" let-item>
+          <div class="language-item">
+            <img
+              [src]="item.flag"
+              alt="{{ item.name }}"
+              width="24"
+              style="margin-right: 10px"
+            />
+            <span>{{ item.name }}</span>
+          </div>
+        </ng-template>
+      </p-dropdown>
+
+      <button
+        pButton
+        [label]="'BUTTON_LOGOUT' | translate"
+        icon="pi pi-sign-out"
+        severity="danger"
+        (click)="logout()"
+        class="ml-3"
+      ></button>
+    </div>
   </div>
 
   <ng-container *ngIf="$tasks | async as taskList">
     <!-- vazifalar bo'limi -->
     <div class="task-section card" pDroppable="true" (onDrop)="dropTask(0)">
-      <h3>Vazifalar</h3>
+      <h3>{{'HOME_TODO' | translate}}</h3>
       <ul class="task-list" *ngIf="getTasksByStatus(0, taskList) as taskTodo">
         <li
           *ngFor="let task of taskTodo"
@@ -52,7 +96,7 @@
               </ng-container>
               <ng-container>
                 <button
-                  (click)="delete(task.id)"
+                  (click)="delete(task.id!)"
                   pButton
                   icon="pi pi-trash"
                   class="p-button-danger"
@@ -63,14 +107,14 @@
         </li>
 
         <li *ngIf="taskTodo.length == 0">
-            <p  class="text-center col-12">hozircha vazifalar yo'q</p>
+          <p class="text-center col-12">{{'HOME_NODATA' | translate}}</p>
         </li>
       </ul>
     </div>
 
     <!-- bajarilgan vazifalar bo'limi -->
     <div class="task-section card" pDroppable="true" (onDrop)="dropTask(1)">
-      <h3>Bajarilgan</h3>
+      <h3>{{'HOME_COMPLATED' | translate}}</h3>
       <ul class="task-list" *ngIf="getTasksByStatus(1, taskList) as taskDone">
         <li
           *ngFor="let task of taskDone"
@@ -109,7 +153,7 @@
               </ng-container>
               <ng-container>
                 <button
-                  (click)="delete(task.id)"
+                  (click)="delete(task.id!)"
                   pButton
                   icon="pi pi-trash"
                   class="p-button-danger"
@@ -119,7 +163,7 @@
           </div>
         </li>
         <li *ngIf="taskDone.length == 0">
-            <p  class="text-center col-12">hozircha bajarilgan vazifalar yo'q</p>
+          <p class="text-center col-12">{{'HOME_NODATA' | translate}}</p>
         </li>
       </ul>
     </div>

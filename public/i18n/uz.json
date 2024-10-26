@@ -1,0 +1,27 @@
+{
+    "HOME_TITLE": "Vazifalar ro'yhati",
+    "HOME_TODO": "Vazifalar",
+    "HOME_COMPLATED": "Bajarilgan",
+    "HOME_NODATA": "hozircha bajarilgan vazifalar yo'q",
+
+    "MODAL_TITLE_UPDATE": "O'zgartirish",
+    "MODAL_TITLE_CREATE": "Qo'shish",
+    "MODAL_FORM_TITLE": "vazifa nomi - (5 tadan 100 tagacha belgi)",
+    "MODAL_FORM_DESCR": "qo'shimcha ma'lumotlari - (5 tadan 500 tagacha belgi)",
+    "MODAL_FORM_BACK": "bekor qilish",
+    "MODAL_FORM_SAVE": "saqlash",
+
+    "AUTH_FORM_LOGIN": "Kirish",
+    "AUTH_FORM_REGISTER": "Ro'yhatdan o'tish",
+    "AUTH_FORM_SAVE": "saqlash",
+    "AUTH_FORM_NOTE": "Malumotlarni to'liq to'ldiring",
+    "AUTH_FORM_INFO_REGISTER": "Siz ro'yhatdan o'tgan bo'lsangiz",
+    "AUTH_FORM_INFO_LOGIN": "Siz ro'yhatdan o'tmagan bo'lsangiz",
+    "AUTH_FORM_LABEL_EMAIL": "Siz ro'yhatdan o'tmagan bo'lsangiz",
+    "AUTH_FORM_LABEL_NAME": "Siz ro'yhatdan o'tmagan bo'lsangiz",
+    "AUTH_FORM_LABEL_PASSWORD": "Siz ro'yhatdan o'tmagan bo'lsangiz",
+    "AUTH_FORM_LABEL_PASSWORD_MATCH": "Siz ro'yhatdan o'tmagan bo'lsangiz",
+
+    "BUTTON_ADD": "Qo'shish",
+    "BUTTON_LOGOUT": "Chiqish"
+}

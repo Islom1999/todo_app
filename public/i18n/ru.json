@@ -1,0 +1,27 @@
+{
+    "HOME_TITLE": "Список задач",
+    "HOME_TODO": "Задачи",
+    "HOME_COMPLATED": "Выполнено",
+    "HOME_NODATA": "пока нет выполненных задач",
+
+    "MODAL_TITLE_UPDATE": "Изменение",
+    "MODAL_TITLE_CREATE": "Добавление",
+    "MODAL_FORM_TITLE": "название задачи - (от 5 до 100 символов)",
+    "MODAL_FORM_DESCR": "дополнительные данные - (от 5 до 500 символов)",
+    "MODAL_FORM_BACK": "отмена",
+    "MODAL_FORM_SAVE": "сохранить",
+
+    "AUTH_FORM_LOGIN": "Вход",
+    "AUTH_FORM_REGISTER": "Регистрация",
+    "AUTH_FORM_SAVE": "сохранить",
+    "AUTH_FORM_NOTE": "Пожалуйста, заполните все данные",
+    "AUTH_FORM_INFO_REGISTER": "Если вы уже зарегистрированы",
+    "AUTH_FORM_INFO_LOGIN": "Если вы еще не зарегистрированы",
+    "AUTH_FORM_LABEL_EMAIL": "Если вы не зарегистрированы",
+    "AUTH_FORM_LABEL_NAME": "Если вы не зарегистрированы",
+    "AUTH_FORM_LABEL_PASSWORD": "Если вы не зарегистрированы",
+    "AUTH_FORM_LABEL_PASSWORD_MATCH": "Если вы не зарегистрированы",
+
+    "BUTTON_ADD": "Добавить",
+    "BUTTON_LOGOUT": "Выход"
+}

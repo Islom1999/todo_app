@@ -71,16 +71,16 @@ export class TodoService {
   }
 
   // DELETE: ID bo'yicha vazifani o'chirish
-  deleteTask(id: number): Observable<ITodo> {
+  deleteTask(id: number): Observable<void> {
     const url = `${this.apiUrl}/tasks/${id}`;
-    return this.http.delete<ITodo>(url)
-      .pipe(
-        tap(() => {
-          this.loadAllTasks()
-        }),
-        catchError(this.handleError<ITodo>('deleteTask'))
-      );
+    return this.http.delete<void>(url).pipe(
+      tap(() => {
+        this.loadAllTasks();
+      }),
+      catchError(this.handleError<void>('deleteTask'))
+    );
   }
+  
 
   // Xatolikni boshqarish funksiyasi
   private handleError<T>(operation = 'operation', result?: T) {

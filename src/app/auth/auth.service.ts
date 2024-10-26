@@ -9,7 +9,7 @@ import { tap } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private url = environment.apiUrl;
+  public url = environment.apiUrl;
 
   constructor(
     private http: HttpClient,
@@ -33,11 +33,13 @@ export class AuthService {
     .post<Tokens>(`${environment.apiUrl}/register`, data)
     .pipe(
       tap((tokens) => {
-        if (tokens.access_token) {
-          // this.setTokens(tokens);
-        }
       })
     );
+  }
+
+  logout() {
+    localStorage.removeItem('access_token');
+    return this.router.navigate(['/auth/login'])
   }
 
   getToken() {

@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../../../shared';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { TodoDetailComponent } from '../todo-detail/todo-detail.component';
-import { ITodo } from '../../../../../interfaces';
+import { ILanguage, ITodo } from '../../../../../interfaces';
 import { catchError, Observable, of } from 'rxjs';
 import { MessageService } from 'primeng/api';
+import { AuthService } from '../../../../auth';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../../../shared/services/language.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-todo-list',
@@ -16,17 +20,34 @@ export class TodoListComponent implements OnInit {
   ref: DynamicDialogRef | undefined;
   $tasks: Observable<ITodo[]> = this._todoService._data.pipe()
   draggingTask: ITodo | null = null;
+  selectedLanguage!: ILanguage;
+
+  languages!: ILanguage[];
 
   constructor(
     private _todoService: TodoService,
+    private _authService: AuthService,
     private _dialogService: DialogService,
     private _messageService: MessageService,
+    private _titleService: Title,
+    private _langService: LanguageService,
+    private translate: TranslateService,
   ){}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._titleService.setTitle("Vazifalar ro'yhati");
+
+    this.selectedLanguage = this._langService.getLang()
+    this.translate.setDefaultLang(this.selectedLanguage.code)
+    this.languages = this._langService.getAllLang()
+  }
+
+  changeLanguage() {
+    this._langService.setLang(this.selectedLanguage.code)
+    this.translate.use(this._langService.getLang().code);
+  }
 
   getTasksByStatus(status: number, tasks: ITodo[]) {
-    console.log(tasks.filter( (task:ITodo) => task.completed === status ))
     return tasks.filter( (task:ITodo) => task.completed === status );
   }
 
@@ -67,16 +88,20 @@ export class TodoListComponent implements OnInit {
     }
   }
 
-  showTaskDialog(id?:number) {
-    this.ref = this._dialogService.open(TodoDetailComponent, {
-      header: id ? "O'zgartirish" : "Qo'shish",
-      width: '80vw',
-      contentStyle: { overflow: 'auto' },
-      breakpoints: {
-        '960px': '75vw',
-        '640px': '90vw'
-      },
-      data:{id}
+  showTaskDialog(id?: number) {
+    const translationKey = id ? 'MODAL_TITLE_UPDATE' : 'MODAL_TITLE_CREATE';
+
+    this.translate.get(translationKey).subscribe((headerTitle: string) => {
+        this.ref = this._dialogService.open(TodoDetailComponent, {
+            header: headerTitle,
+            width: '80vw',
+            contentStyle: { overflow: 'auto' },
+            breakpoints: {
+                '960px': '75vw',
+                '640px': '90vw'
+            },
+            data: { id }
+        });
     });
   }
 
@@ -91,5 +116,9 @@ export class TodoListComponent implements OnInit {
       .subscribe(task => {
         this._messageService.add({ severity: 'success', summary: `O'chirildi`, detail: `Vazifa o'chirildi`})
       })
+  }
+
+  logout(){
+    this._authService.logout()
   }
 }

@@ -1,0 +1,27 @@
+{
+    "HOME_TITLE": "Task List",
+    "HOME_TODO": "Tasks",
+    "HOME_COMPLATED": "Completed",
+    "HOME_NODATA": "there are no completed tasks yet",
+
+    "MODAL_TITLE_UPDATE": "Update",
+    "MODAL_TITLE_CREATE": "Create",
+    "MODAL_FORM_TITLE": "task name - (5 to 100 characters)",
+    "MODAL_FORM_DESCR": "additional information - (5 to 500 characters)",
+    "MODAL_FORM_BACK": "cancel",
+    "MODAL_FORM_SAVE": "save",
+
+    "AUTH_FORM_LOGIN": "Login",
+    "AUTH_FORM_REGISTER": "Register",
+    "AUTH_FORM_SAVE": "save",
+    "AUTH_FORM_NOTE": "Please fill out all the information",
+    "AUTH_FORM_INFO_REGISTER": "If you are already registered",
+    "AUTH_FORM_INFO_LOGIN": "If you are not registered yet",
+    "AUTH_FORM_LABEL_EMAIL": "If you are not registered",
+    "AUTH_FORM_LABEL_NAME": "If you are not registered",
+    "AUTH_FORM_LABEL_PASSWORD": "If you are not registered",
+    "AUTH_FORM_LABEL_PASSWORD_MATCH": "If you are not registered",
+
+    "BUTTON_ADD": "Add",
+    "BUTTON_LOGOUT": "Logout"
+}

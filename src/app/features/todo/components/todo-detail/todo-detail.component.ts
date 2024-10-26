@@ -4,6 +4,9 @@ import { MessageService } from 'primeng/api';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { catchError, of } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../../../shared/services/language.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-todo-detail',
@@ -18,20 +21,31 @@ export class TodoDetailComponent implements OnInit {
     private _todoService: TodoService,
     private _messageService: MessageService,
     public config: DynamicDialogConfig,
-    public ref: DynamicDialogRef
+    public ref: DynamicDialogRef,
+    private _titleService: Title,
+    private _langService: LanguageService,
+    private translate: TranslateService,
   ){}
 
   ngOnInit(): void {
+    this.translate.setDefaultLang(this._langService.getLang().code)
+
     this.id = this.config.data.id;
 
     this.form = new FormGroup({
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
+      title: new FormControl('', [Validators.required, Validators.maxLength(100), Validators.minLength(5)]),
+      description: new FormControl('', [Validators.required, Validators.maxLength(500), Validators.minLength(5)]),
     });
 
-    this._todoService.getTaskById(this.id).subscribe((data) => {
-      this.form.patchValue(data);
-    });
+    if(this.id){
+      this._todoService.getTaskById(this.id).subscribe((data) => {
+        this.form.patchValue(data);
+      });
+
+      this._titleService.setTitle('vazifani o\'zgartirish')
+    }else{
+      this._titleService.setTitle('vazifa qo\'shish')
+    }
   }
 
   submit() {
