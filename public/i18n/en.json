@@ -17,10 +17,10 @@
     "AUTH_FORM_NOTE": "Please fill out all the information",
     "AUTH_FORM_INFO_REGISTER": "If you are already registered",
     "AUTH_FORM_INFO_LOGIN": "If you are not registered yet",
-    "AUTH_FORM_LABEL_EMAIL": "If you are not registered",
-    "AUTH_FORM_LABEL_NAME": "If you are not registered",
-    "AUTH_FORM_LABEL_PASSWORD": "If you are not registered",
-    "AUTH_FORM_LABEL_PASSWORD_MATCH": "If you are not registered",
+    "AUTH_FORM_LABEL_EMAIL": "Email",
+    "AUTH_FORM_LABEL_NAME": "Name",
+    "AUTH_FORM_LABEL_PASSWORD": "Password",
+    "AUTH_FORM_LABEL_PASSWORD_MATCH": "Password Match",
 
     "BUTTON_ADD": "Add",
     "BUTTON_LOGOUT": "Logout"

@@ -17,10 +17,10 @@
     "AUTH_FORM_NOTE": "Пожалуйста, заполните все данные",
     "AUTH_FORM_INFO_REGISTER": "Если вы уже зарегистрированы",
     "AUTH_FORM_INFO_LOGIN": "Если вы еще не зарегистрированы",
-    "AUTH_FORM_LABEL_EMAIL": "Если вы не зарегистрированы",
-    "AUTH_FORM_LABEL_NAME": "Если вы не зарегистрированы",
-    "AUTH_FORM_LABEL_PASSWORD": "Если вы не зарегистрированы",
-    "AUTH_FORM_LABEL_PASSWORD_MATCH": "Если вы не зарегистрированы",
+    "AUTH_FORM_LABEL_EMAIL": "Email",
+    "AUTH_FORM_LABEL_NAME": "Name",
+    "AUTH_FORM_LABEL_PASSWORD": "Password",
+    "AUTH_FORM_LABEL_PASSWORD_MATCH": "Password Match",
 
     "BUTTON_ADD": "Добавить",
     "BUTTON_LOGOUT": "Выход"
